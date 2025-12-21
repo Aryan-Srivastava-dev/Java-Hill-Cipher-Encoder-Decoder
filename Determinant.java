@@ -1,9 +1,4 @@
 public class Determinant {
-    public static void main(String[] args) {
-        int[][] arr = {{3, 2, -2}, {1, 4, -5}, {2, 1, -3}};
-        System.out.println(solveDeterminant(arr, 2));
-    }
-
     public static int solveDeterminant(int[][] arr, int n) {
         if(n == 1) {
             return arr[0][0];
@@ -28,3 +23,4 @@ public class Determinant {
         return sum;
     }
 }
+
