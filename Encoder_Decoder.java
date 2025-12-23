@@ -54,6 +54,9 @@ public class Encoder_Decoder {
     }
 
     private static String decode(int[][] D, int[][] A) {
+        int detA = Determinant.solveDeterminant(A, A.length);
+        if(detA == 0 || gcd(Math.max(detA, 26), Math.min(detA, 26)) > 1)
+            return "The key matrix is not invertible, cannot decode.";
         int[][] E = multiply(inverse(A), D);
         String ans = "";
 
@@ -152,5 +155,12 @@ public class Encoder_Decoder {
         }
 
         return 0;
+    }
+
+    private static int gcd(int a, int b) {
+        if(b == 0)
+            return a;
+
+        return gcd(b, a%b);
     }
 }
